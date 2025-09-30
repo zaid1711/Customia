@@ -1,0 +1,464 @@
+/* Google Fonts */ 
+@import 
+url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Roboto:wght@300;400;500&display=swap'); 
+ 
+/* Global Reset */ 
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+} 
+ 
+body { 
+  font-family: 'Roboto', sans-serif; 
+  background-color: #fff; 
+  color: #222; 
+  line-height: 1.6; 
+} 
+ 
+/* Navbar */ 
+.navbar { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 1rem 5%; 
+  background: #111; 
+  color: #fff; 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+} 
+ 
+.logo { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 1.6rem; 
+  font-weight: 700; 
+  color: #f5c542; /* gold */ 
+} 
+ 
+.nav-links { 
+  list-style: none; 
+  display: flex; 
+  gap: 2rem; 
+} 
+ 
+.nav-links a { 
+  text-decoration: none; 
+  color: #fff; 
+  font-weight: 500; 
+  transition: color 0.3s ease; 
+} 
+ 
+.nav-links a:hover { 
+  color: #f5c542; 
+} 
+ 
+/* Hero Section */ 
+.hero { 
+  height: 90vh; 
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('images/banner.jpg') center/cover no-repeat; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  text-align: center; 
+  color: #fff; 
+  padding: 2rem; 
+} 
+ 
+.hero h1 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 3rem; 
+  margin-bottom: 1rem; 
+} 
+ 
+.hero p { 
+  font-size: 1.2rem; 
+  margin-bottom: 2rem; 
+} 
+ 
+.btn { 
+  display: inline-block; 
+  padding: 0.8rem 2rem; 
+  background: #f5c542; 
+  color: #111; 
+  font-weight: bold; 
+  text-decoration: none; 
+  border-radius: 50px; 
+  transition: all 0.3s ease; 
+} 
+ 
+.btn:hover { 
+  background: #fff; 
+  color: #111; 
+} 
+ 
+/* Categories Section */ 
+.categories { 
+  padding: 4rem 10%; 
+  text-align: center; 
+} 
+ 
+.categories h2 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 2rem; 
+  margin-bottom: 2rem; 
+  color: #111; 
+} 
+ 
+.category-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 2rem; 
+} 
+ 
+.category-card { 
+  background: #111; 
+  color: #fff; 
+  padding: 2rem; 
+  border-radius: 15px; 
+  text-decoration: none; 
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  transition: transform 0.3s ease, background 0.3s ease; 
+} 
+ 
+.category-card:hover { 
+  transform: translateY(-10px); 
+  background: #f5c542; 
+  color: #111; 
+} 
+ 
+/* Reviews Section */ 
+.reviews { 
+  padding: 4rem 10%; 
+  background: #f9f9f9; 
+} 
+ 
+.reviews h2 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 2rem; 
+  text-align: center; 
+  margin-bottom: 2rem; 
+} 
+ 
+.review-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 2rem; 
+} 
+ 
+.review-card { 
+  background: #fff; 
+  border: 1px solid #eee; 
+  border-radius: 15px; 
+  padding: 1.5rem; 
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+  font-style: italic; 
+  transition: transform 0.3s ease; 
+} 
+ 
+.review-card:hover { 
+  transform: translateY(-5px); 
+} 
+ 
+/* Footer */ 
+footer { 
+  background: #111; 
+  color: #aaa; 
+  text-align: center; 
+  padding: 1.5rem; 
+  margin-top: 2rem; 
+} 
+ 
+footer a { 
+  color: #f5c542; 
+  text-decoration: none; 
+  margin: 0 0.5rem; 
+  transition: color 0.3s ease; 
+} 
+ 
+footer a:hover { 
+  color: #fff; 
+} 
+
+
+/* ...existing code... */
+
+/* Make hero occupy the full viewport on small screens so the collections/buttons sit below and require scrolling */
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;        /* ensure single-page-first view */
+    min-height: 100vh;
+    padding: 2rem 1.25rem; /* compact padding for mobiles */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically center tagline */
+    align-items: center;
+    text-align: center;
+    overflow: hidden;     /* avoid partial peek of next section */
+  }
+
+  .hero h1 {
+    font-size: 2.0rem;
+    line-height: 1.08;
+    margin-bottom: 0.6rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    max-width: 32rem;
+    margin-bottom: 1rem;
+  }
+
+  /* keep navbar visible but compact */
+  .navbar { padding: 0.7rem 4%; }
+  .logo { font-size: 1.35rem; }
+
+  /* spacing for the next section so it starts cleanly after hero */
+  .categories, .products, .reviews {
+    padding-top: 2.25rem;
+  }
+}
+
+/* tiny phones — keep full viewport and slightly reduce hero text */
+@media (max-width: 480px) {
+  .hero { height: 100vh; min-height: 100vh; padding: 1.6rem 0.9rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero p  { font-size: 0.95rem; }
+}
+
+/* ...existing code... */
+
+
+
+
+
+
+
+
+
+
+/* Category Header */ 
+.category-header { 
+  text-align: center; 
+  padding: 3rem 10%; 
+  background: #f5f5f5; 
+} 
+ 
+.category-header h1 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: 2.2rem; 
+  margin-bottom: 1rem; 
+} 
+ 
+.category-header p { 
+  font-size: 1.1rem; 
+  color: #444; 
+} 
+ 
+/* Products Grid */ 
+.products { 
+  padding: 4rem 10%; 
+} 
+ 
+.product-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 2rem; 
+} 
+ 
+.product-card { 
+  background: #fff; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+  padding: 1.5rem; 
+  text-align: center; 
+  transition: transform 0.3s ease; 
+} 
+ 
+.product-card:hover { 
+  transform: translateY(-8px); 
+} 
+ 
+.product-card img { 
+width: 100%; 
+height: 250px; 
+object-fit: cover; 
+border-radius: 10px; 
+margin-bottom: 1rem; 
+} 
+.product-card h3 { 
+font-size: 1.3rem; 
+margin-bottom: 0.5rem; 
+} 
+.product-card p { 
+font-size: 0.95rem; 
+margin-bottom: 0.8rem; 
+color: #555; 
+} 
+.price { 
+display: block; 
+font-weight: bold; 
+font-size: 1.1rem; 
+color: #f5c542; 
+margin-bottom: 1rem; 
+} 
+
+
+
+
+/* Contact Section */
+.contact {
+  padding: 4rem 10%;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  align-items: start;
+}
+
+.contact-info h2 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  margin-bottom: 0.8rem;
+  color: #444;
+}
+
+.map iframe {
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+
+
+
+/* ...existing code...
+
+/* ===== Collections (robust responsive grid, keeps 4 cols on wide screens) ===== */
+.collections {
+  background: #fafafa;
+  padding: 1.6rem 4%;
+  color: #111;
+}
+
+.collections .container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* mobile-first: 1 column by default, images keep aspect ratio */
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
+  align-items: stretch;
+}
+
+/* card: vertical layout (image on top) */
+.collection-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(17,17,17,0.06);
+  transition: transform .26s ease, box-shadow .26s ease;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* clickable wrapper */
+.collection-item a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+
+/* media: use aspect-ratio so all images match size cleanly */
+.collection-item .media {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* uniform crop area */
+  background: #eee;
+  overflow: hidden;
+}
+.collection-item .media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* meta */
+.collection-item .meta {
+  padding: .85rem;
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.collection-item h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  margin: 0;
+  color: #111;
+  font-weight: 600;
+}
+.collection-item p {
+  margin: 0;
+  color: #6b6b6b;
+  font-size: .92rem;
+}
+
+/* hover lift */
+.collection-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(17,17,17,0.08);
+}
+
+/* medium screens: 2 columns */
+@media (min-width: 600px) {
+  .collection-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .collection-item .media { aspect-ratio: 4 / 3; }
+  .collections { padding: 2rem 5%; }
+}
+
+/* large screens: 3 columns */
+@media (min-width: 900px) {
+  .collection-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .collection-item .media { aspect-ratio: 16 / 11; }
+}
+
+/* extra-large screens: 4 columns */
+@media (min-width: 1200px) {
+  .collection-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .collections { padding: 2.5rem 6%; }
+  .collection-item .media { aspect-ratio: 16 / 11; }
+}
+
+/* very small phones */
+@media (max-width: 380px) {
+  .collections { padding: 1.1rem 3%; }
+  .collection-item .meta { padding: .7rem; }
+  .collection-item h3 { font-size: .96rem; }
+  .collection-item p { font-size: .85rem; }
+}
+
+/* ensure media never overflows */
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* ...existing code...
